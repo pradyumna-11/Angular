@@ -1,0 +1,11 @@
+<label>Username</label>
+<br/>
+<input type="text" (change)="changeUsername($event)" [value]="username" />
+<br/>
+<label>Password</label>
+<br/>
+<input type="password" (change)="changePassword($event)" [value]="password" />
+<br/>
+<button (click) = "login()" >Login</button>
+
+<p>{{loginText}}</p>
