@@ -1,0 +1,9 @@
+<h1>This is courses page</h1>
+<button (click)="show=true">
+    View courses
+</button>
+
+<div *ngIf="show">
+    <app-course-list></app-course-list>
+
+</div>
