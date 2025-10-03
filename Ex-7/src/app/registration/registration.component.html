@@ -1,0 +1,79 @@
+<!-- course-registration.component.html -->
+<div class="container">
+  <h2>Course Registration Form</h2>
+  
+  <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+    
+    <!-- Name -->
+    <div>
+      <label for="name">Full Name:</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        [(ngModel)]="registration.name" 
+        required 
+        #name="ngModel">
+      <div *ngIf="name.invalid && name.touched" style="color:red">
+        Name is required.
+      </div>
+    </div>
+    
+    <!-- Email -->
+    <div>
+      <label for="email">Email:</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        [(ngModel)]="registration.email" 
+        required
+        email
+        #email="ngModel">
+      <div *ngIf="email.invalid && email.touched" style="color:red">
+        Enter a valid email.
+      </div>
+    </div>
+    
+    <!-- Course Selection -->
+    <div>
+      <label for="course">Select Course:</label>
+      <select 
+        id="course" 
+        name="course" 
+        [(ngModel)]="registration.course" 
+        required
+        #course="ngModel">
+        <option value="" disabled>Select a course</option>
+        <option *ngFor="let c of courses" [value]="c">{{ c }}</option>
+      </select>
+      <div *ngIf="course.invalid && course.touched" style="color:red">
+        Please select a course.
+      </div>
+    </div>
+    
+    <!-- Gender -->
+    <div>
+      <label>Gender:</label>
+      <label>
+        <input type="radio" name="gender" [(ngModel)]="registration.gender" value="Male" required> Male
+      </label>
+      <label>
+        <input type="radio" name="gender" [(ngModel)]="registration.gender" value="Female"> Female
+      </label>
+      <div *ngIf="courseForm.submitted && !registration.gender" style="color:red">
+        Please select a gender.
+      </div>
+    </div>
+    
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="courseForm.invalid">Register</button>
+    
+  </form>
+  
+  <!-- Success Message -->
+  <div *ngIf="submitted">
+    <h3>Registration Successful!</h3>
+    <p>Thank you, {{ submittedData.name }}. You have registered for the {{ submittedData.course }} course.</p>
+  </div>
+</div>
