@@ -1,0 +1,24 @@
+<div *ngIf="course">
+    <h2>Course Details</h2>
+    <p><strong>Name:</strong> {{ course.name }}</p>
+    <p><strong>Description:</strong> {{ course.description }}</p>
+    <p><strong>Duration:</strong> {{ course.duration }}</p>
+</div>
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Course ID</th>
+      <th>Course Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of maincourses">
+      <td>{{ course.courseId }}</td>
+      <td>{{ course.courseName }}</td>
+      <td><button (click)="register(course.courseName)">Register</button></td>
+    </tr>
+  </tbody>
+</table>
