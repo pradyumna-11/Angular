@@ -1,0 +1,35 @@
+Ex-11
+a)Installing MongoDB on the local computer, Create MongoDB Atlas Cluster 
+
+1.Go to atlas Login
+2.Create a free cluster.
+3.Go to n/w access and add current ip address.
+4.Go to database user access and add user.
+5.Go to clusters and click on connect
+6.Select terminal or shell option and install the msi file.
+7.Complete the installation and try connecting with the command given below in terminal tab.
+8.Replace the <username> with username
+9.It will successfully connect with database.
+10.Load sample data in atlas or create collection and add data to it.
+
+
+CRUD operations:
+
+commands:
+
+use collection collectionname - to use a collection
+
+show collections - to show all available collections.
+
+db.find() - to get all the records
+
+db.find().limit(value)- to get the limited records
+
+db.insertOne or insertMany({}) - enter data with comma separated data
+
+db.accounts.updateOne Or many(
+  { account_id: 9999 },
+  { $set: { limit: 6000 } }
+) - To update a record with given data
+
+db.removeOne or many ({data id's}) - To delete data from database.

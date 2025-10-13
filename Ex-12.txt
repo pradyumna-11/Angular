@@ -1,0 +1,36 @@
+Ex-12
+a) Write MongoDB queries to Create and drop databases and collections.
+
+Refer to Exp-11 to connect with cluster and perform these.
+When you create a database until one collection is created in database it will not show the database name when used show dbs.
+
+show dbs- to check databases available in cluster
+
+use databaseName - it creates and uses database which having database name as databaseName
+
+db.dropdatabase() - To delete database
+
+show collections - To show all the collections available
+
+db.createCollection("collectionName") - To create a collection with given name in braces
+
+db.collectionname.drop() - To drop or delete the collection
+
+
+b)Write MongoDB queries to work with records using find(), limit(), sort(), createIndex(), aggregate(). 
+
+db.users.find({ age: { $gte: 18 } }) - Finds all users aged 18 or older.
+
+db.users.find().limit(5) - Returns only the first 5 documents.
+
+db.users.find().sort({ age: -1 }) - Sorts users by age in descending order.
+
+db.users.createIndex({ email: 1 }) - Creates an ascending index on the email field for faster queries.
+
+db.orders.aggregate([
+  { $match: { status: "delivered" } },
+  { $group: { _id: "$customerId", totalSpent: { $sum: "$amount" } } },
+  { $sort: { totalSpent: -1 } },
+  { $limit: 5 }
+]) - Finds top 5 customers by total spending on delivered orders.
+
